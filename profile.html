@@ -1,0 +1,218 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Profile Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet"/>
+    <style>
+        body {
+            font-family: 'Nunito', sans-serif;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 50;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 400px;
+        }
+        .popup-modal {
+            display: none;
+        }
+        .popup-modal.active {
+            display: flex;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <header class="bg-white shadow-md">
+        <div class="container mx-auto flex justify-between items-center py-4 px-6">
+            <div class="flex items-center">
+                <img alt="Logo" class="h-10 w-10" height="50" src="adasd.png" width="50"/>
+                <nav class="ml-6">
+                    <a class="text-gray-700 hover:text-gray-900 mx-3" href="LandingPage.html">BERANDA</a>
+                    <a class="text-gray-700 hover:text-gray-900 mx-3" href="EksplorasiLogin.html">EKSPLORASI</a>
+                    <a class="text-gray-700 hover:text-gray-900 mx-3" href="#">TENTANG KAMI</a>
+                </nav>
+            </div>
+            <img alt="User Avatar" class="h-10 w-10 rounded-full" height="50" src="profilepic.png" width="50"/>
+        </div>
+    </header>
+    <main class="container mx-auto mt-8 px-6">
+        <div class="flex items-center">
+            <button class="text-3xl text-gray-700 mr-4">
+                <i class="fas fa-arrow-left"></i>
+            </button>
+            <img alt="Profile Picture" class="h-24 w-24 rounded-full" height="100" src="profilepic.png" width="100"/>
+            <div class="ml-6">
+                <h1 class="text-2xl font-bold text-gray-900">David</h1>
+                <p class="text-gray-600">Malang, Perum Citra Pandanwangi</p>
+                <button class="mt-2 px-4 py-2 bg-teal-500 text-white rounded-md">Edit Profil</button>
+            </div>
+        </div>
+        <div class="mt-6 flex items-center border-b border-gray-300">
+            <button id="karyaKamuBtn" class="px-4 py-2 text-teal-500 border-b-2 border-teal-500">Karya kamu</button>
+            <button id="tentangKamuBtn" class="px-4 py-2 text-gray-500">Tentang kamu</button>
+            <button id="uploadBtn" class="ml-auto px-4 py-2 bg-teal-500 text-white rounded-md">Unggah</button>
+            <div class="ml-4 flex items-center text-gray-500">
+                <i class="fas fa-heart"></i>
+                <span class="ml-2">179k</span>
+            </div>
+        </div>
+        <div id="artworkSection" class="mt-6 grid grid-cols-3 gap-4">
+            <!-- Default artwork for "Karya kamu" -->
+            <img alt="Artwork 1" class="rounded-md karya" height="200" src="1.png" width="300"/>
+            <img alt="Artwork 2" class="rounded-md karya" height="200" src="2.png" width="300"/>
+            <img alt="Artwork 3" class="rounded-md karya" height="200" src="3.png" width="300"/>
+            <img alt="Artwork 4" class="rounded-md karya" height="200" src="4.png" width="300"/>
+            <img alt="Artwork 5" class="rounded-md karya" height="200" src="1.png" width="300"/>
+            <img alt="Artwork 6" class="rounded-md karya" height="200" src="2.png" width="300"/>
+            <img alt="Artwork 7" class="rounded-md karya" height="200" src="3.png" width="300"/>
+            <img alt="Artwork 8" class="rounded-md karya" height="200" src="4.png" width="300"/>
+            <img alt="Artwork 9" class="rounded-md karya" height="200" src="1.png" width="300"/>
+        </div>
+    </main>
+
+    <div id="uploadModal" class="modal">
+        <div class="modal-content bg-teal-400 p-6 rounded-lg shadow-lg">
+            <div class="bg-blue-900 rounded-lg h-40 flex items-center justify-center text-white text-lg mb-4">
+                <span>upload gambar <i class="fas fa-upload"></i></span>
+            </div>
+            <div class="mb-4">
+                <label class="block text-sm font-medium text-gray-700 mb-1">Tambah Deskripsi</label>
+                <textarea class="w-full p-2 border rounded-lg" rows="4"></textarea>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Tambahkan Kategori</label>
+                <div class="flex flex-wrap gap-2 mb-4">
+                    <button class="bg-gray-800 text-white px-4 py-2 rounded-lg">poster</button>
+                    <button class="bg-gray-800 text-white px-4 py-2 rounded-lg">wallpaper</button>
+                    <button class="bg-white text-gray-800 border border-gray-800 px-4 py-2 rounded-lg">tag</button>
+                    <button class="bg-white text-gray-800 border border-gray-800 px-4 py-2 rounded-lg">tag</button>
+                    <button class="bg-white text-gray-800 border border-gray-800 px-4 py-2 rounded-lg">tag</button>
+                    <button class="bg-white text-gray-800 border border-gray-800 px-4 py-2 rounded-lg">tag</button>
+                    <button class="bg-white text-gray-800 border border-gray-800 px-4 py-2 rounded-lg">tag</button>
+                    <button class="bg-white text-gray-800 border border-gray-800 px-4 py-2 rounded-lg">tag</button>
+                </div>
+            </div>
+            <div class="flex justify-end">
+                <button id="closeModal" class="bg-gray-800 text-white px-6 py-2 rounded-lg">OK</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="popupModal" class="popup-modal fixed inset-0 bg-black bg-opacity-50 items-center justify-center">
+        <div class="bg-teal-400 p-8 rounded-lg text-center">
+            <div class="text-6xl text-black mb-4">
+                <i class="fas fa-exclamation-circle"></i>
+            </div>
+            <p class="text-black text-xl mb-6">Hapus karya?</p>
+            <div class="flex justify-center space-x-4">
+                <button id="confirmDelete" class="bg-teal-600 text-white px-6 py-2 rounded-md">Ya</button>
+                <button id="closePopup" class="bg-teal-600 text-white px-6 py-2 rounded-md">Tidak</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('uploadBtn').onclick = function() {
+            document.getElementById('uploadModal').style.display = 'block';
+        }
+
+        document.getElementById('closeModal').onclick = function() {
+            document.getElementById('uploadModal').style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('uploadModal')) {
+                document.getElementById('uploadModal').style.display = 'none';
+            }
+        }
+
+        document.getElementById('karyaKamuBtn').onclick = function() {
+            document.getElementById('karyaKamuBtn').classList.add('text-teal-500', 'border-b-2', 'border-teal-500');
+            document.getElementById('tentangKamuBtn').classList.remove('text-teal-500', 'border-b-2', 'border-teal-500');
+            document.getElementById('tentangKamuBtn').classList.add('text-gray-500');
+            document.getElementById('karyaKamuBtn').classList.remove('text-gray-500');
+            document.getElementById('artworkSection').innerHTML = `
+                <img alt="Artwork 1" class="rounded-md karya" height="200" src="1.png" width="300"/>
+                <img alt="Artwork 2" class="rounded-md karya" height="200" src="2.png" width="300"/>
+                <img alt="Artwork 3" class="rounded-md karya" height="200" src="3.png" width="300"/>
+                <img alt="Artwork 4" class="rounded-md karya" height="200" src="4.png" width="300"/>
+                <img alt="Artwork 5" class="rounded-md karya" height="200" src="1.png" width="300"/>
+                <img alt="Artwork 6" class="rounded-md karya" height="200" src="2.png" width="300"/>
+                <img alt="Artwork 7" class="rounded-md karya" height="200" src="3.png" width="300"/>
+                <img alt="Artwork 8" class="rounded-md karya" height="200" src="4.png" width="300"/>
+                <img alt="Artwork 9" class="rounded-md karya" height="200" src="1.png" width="300"/>
+            `;
+            addClickEvent();
+        }
+
+        document.getElementById('tentangKamuBtn').onclick = function() {
+            document.getElementById('tentangKamuBtn').classList.add('text-teal-500', 'border-b-2', 'border-teal-500');
+            document.getElementById('karyaKamuBtn').classList.remove('text-teal-500', 'border-b-2', 'border-teal-500');
+            document.getElementById('karyaKamuBtn').classList.add('text-gray-500');
+            document.getElementById('tentangKamuBtn').classList.remove('text-gray-500');
+            document.getElementById('artworkSection').innerHTML = `
+                <img alt="Artwork A" class="rounded-md karya" height="200" src="A.png" width="300"/>
+                <img alt="Artwork B" class="rounded-md karya" height="200" src="B.png" width="300"/>
+                <img alt="Artwork C" class="rounded-md karya" height="200" src="C.png" width="300"/>
+                <img alt="Artwork D" class="rounded-md karya" height="200" src="D.png" width="300"/>
+                <img alt="Artwork E" class="rounded-md karya" height="200" src="B.png" width="300"/>
+                <img alt="Artwork F" class="rounded-md karya" height="200" src="C.png" width="300"/>
+                <img alt="Artwork G" class="rounded-md karya" height="200" src="D.png" width="300"/>
+                <img alt="Artwork H" class="rounded-md karya" height="200" src="A.png" width="300"/>
+                <img alt="Artwork I" class="rounded-md karya" height="200" src="D.png" width="300"/>
+            `;
+            addClickEvent();
+        }
+
+        function addClickEvent() {
+            const artworks = document.querySelectorAll('.karya');
+            const popupModal = document.getElementById('popupModal');
+            const closePopup = document.getElementById('closePopup');
+            const confirmDelete = document.getElementById('confirmDelete');
+            let selectedArtwork;
+
+            artworks.forEach(artwork => {
+                artwork.addEventListener('click', () => {
+                    selectedArtwork = artwork;
+                    popupModal.classList.add('active');
+                });
+            });
+
+            closePopup.addEventListener('click', () => {
+                popupModal.classList.remove('active');
+            });
+
+            confirmDelete.addEventListener('click', () => {
+                if (selectedArtwork) {
+                    selectedArtwork.remove();
+                    popupModal.classList.remove('active');
+                }
+            });
+
+            window.addEventListener('click', (event) => {
+                if (event.target == popupModal) {
+                    popupModal.classList.remove('active');
+                }
+            });
+        }
+
+        addClickEvent();
+    </script>
+</body>
+</html>
