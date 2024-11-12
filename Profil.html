@@ -1,156 +1,156 @@
 <!DOCTYPE html>
 <html>
-<html lang="en"><head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="csrf-token" content="nBFRuXRqZ6HqLD4hFM91lsMnlLQDnOpKCzJbuXYV">
-    <title>Gakari</title>
-
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="csrf-token" content="nBFRuXRqZ6HqLD4hFM91lsMnlLQDnOpKCzJbuXYV">
+        <title>Rubiks/title>
     
-    <link rel="stylesheet" href="style.css">
-
+        <link rel="stylesheet" href="style.css">
     
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    </head>
 
-</head>
-
-<body>
-    
-    <header>
-    <img src="images/logo-text-dark.png" alt="logo" class="logo">
-    <nav>
-        <ul class="nav-links">
-            <li class="nav-item "><a href="/">Landing Page</a></li>
-            <li class="nav-item "><a href="eksplorasi">Eksplorasi</a></li>
-            <li class="nav-item"><a href="#aboutme">Tentang Kami</a></li>
-        </ul>
-        <div class="auth">
-                            <div class="dropdown">
-                    <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" fdprocessedid="tcrtz">
-                                                    <img src="images/default-profile.png" alt="Default" width="50px" style="border-radius: 50%">
-                                            </button>
-                    <ul class="dropdown-menu">
-                        <div class="profile">
-                                                            <img src="images/default-profile.png" alt="Default" width="50px" style="border-radius: 50%">
-                                                        <h6>Admin</h6>
-                        </div>
-                        <div class="menu mt-2">
-                            <a href="profile">Profil</a>
-                            <!-- <a href="#">Unggah Karya</a> -->
-                            <a href="logout" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                keluar
-                            </a>
-                            <form id="logout-form" action="logout" method="POST" style="display: none;">
-                                <input type="hidden" name="_token" value="nBFRuXRqZ6HqLD4hFM91lsMnlLQDnOpKCzJbuXYV" autocomplete="off">                            </form>
-                        </div>
-                    </ul>
-                </div>
+    <body>
+        <header>
+            <img src="logo/logo-rubiks.png" alt="logo" class="logo">
+            <nav>
+                <ul class="nav-links">
+                    <li class="nav-item "><a href="/">Landing Page</a></li>
+                    <li class="nav-item "><a href="eksplorasi">Eksplorasi</a></li>
+                    <li class="nav-item"><a href="#aboutme">Tentang Kami</a></li>
+                </ul>
+                <div class="auth">
+                    <div class="dropdown">
+                        <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" fdprocessedid="tcrtz">
+                            <img src="images/default-profile.png" alt="Default" width="50px" style="border-radius: 50%">
+                        </button>
+                        <ul class="dropdown-menu">
+                            <div class="profile">
+                                <img src="images/default-profile.png" alt="Default" width="50px" style="border-radius: 50%">
+                                <h6>Admin</h6>
+                            </div>
+                            <div class="menu mt-2">
+                                <a href="profile">Profil</a>
+                                <!-- <a href="#">Unggah Karya</a> -->
+                                <a href="logout" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                    keluar
+                                </a>
+                                <form id="logout-form" action="logout" method="POST" style="display: none;">
+                                <input type="hidden" name="_token" value="nBFRuXRqZ6HqLD4hFM91lsMnlLQDnOpKCzJbuXYV" autocomplete="off"></form>
+                            </div>
+                        </ul>
                     </div>
-    </nav>
-</header>
+                </div>
+            </nav>
+        </header>
 
-    <section>
+        <section>
             <div class="profile-container">
-        <a href="http://127.0.0.1:8000"><img src="images/back.png" alt="back" width="40px" class="back"></a>
-        <div class="profile-info">
-                            <img src="images/default-profile.png" alt="profile">
-                        <div class="detail">
-                <h4>Admin</h4>
-                <p></p>
-            </div>
-        </div>
-        <div class="menu">
-            <button class="btn-menu active" id="btn-karya" fdprocessedid="29ete">Karya kamu</button>
-            <button class="btn-menu" id="btn-tentang" fdprocessedid="bwlru">Tentang kamu</button>
-        </div>
-        <hr>
-        <div class="my-artworks">
-            <div class="row">
-    </div>
-            <div class="action mt-2">
-                <button type="button" class="btn-action" data-bs-toggle="modal" data-bs-target="#modalListDelete" fdprocessedid="wxpbm">Hapus</button>
-                <!-- Modal -->
-                <div class="modal fade" id="modalListDelete" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-lg modal-dialog-centered">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="staticBackdropLabel">Hapus Karya</h1>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <table class="table table-striped">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col">No</th>
-                                            <th scope="col">Foto</th>
-                                            <th scope="col">Deskripsi</th>
-                                            <th scope="col">Kategori</th>
-                                            <th scope="col">Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                                                                                                            <tr>
-                                                <th scope="row">1</th>
-                                                <td><img src="storage/artwork/2GgtAm1hMv47H0hG8ZwLAiGAaFZ82eVBHriU7rC8.png" alt="artwork" width="50px"></td>
-                                                <td class="description">...</td>
-                                                <td>Digital Art</td>
-                                                <td>
-                                                    <form action="profile/1" method="POST">
-                                                        <input type="hidden" name="_method" value="delete">                                                        <input type="hidden" name="_token" value="nBFRuXRqZ6HqLD4hFM91lsMnlLQDnOpKCzJbuXYV" autocomplete="off">                                                        <button class="btn-delete" onclick="return confirm('Are you sure?')">Hapus</button>
-                                                    </form>
-                                                </td>
-                                            </tr>
-                                                                            </tbody>
-                                </table>
-                            </div>
-                        </div>
+                <a href="http://127.0.0.1:8000"><img src="images/back.png" alt="back" width="40px" class="back"></a>
+                <div class="profile-info">
+                    <img src="images/default-profile.png" alt="profile">
+                    <div class="detail">
+                        <h4>Admin</h4>
+                        <p></p>
                     </div>
                 </div>
-                <div class="dropdown">
-                    <button class="btn-action" type="button" data-bs-toggle="dropdown" fdprocessedid="egsx9h">Unggah</button>
-                    <ul class="dropdown-menu upload">
-                        <form action="profile" method="POST" enctype="multipart/form-data">
-                            <input type="hidden" name="_token" value="nBFRuXRqZ6HqLD4hFM91lsMnlLQDnOpKCzJbuXYV" autocomplete="off">                            <div class="mb-3">
-                                <input type="file" class="form-control" id="inputfile" aria-describedby="inputgroupfile" aria-label="Upload" name="image">
-                            </div>
-                            <div class="mb-3">
-                                <label for="description">Tambahkan deskripsi</label>
-                                <textarea type="text" name="description" id="description"></textarea>
-                            </div>
-                            <div class="mb-5">
-                                <select class="form-select" aria-label="select-category" name="category_id">
-                                    <option selected="">Tambahkan kategori</option>
-                                                                            <option value="1">Digital Art</option>
-                                                                            <option value="2">Poster</option>
-                                                                            <option value="3">Web Design</option>
-                                                                            <option value="4">Wallpaper</option>
-                                                                            <option value="5">Kerajinan Tangan</option>
-                                                                            <option value="6">Ilustrasi</option>
-                                                                            <option value="7">Portofolio</option>
-                                                                            <option value="8">Typography</option>
-                                                                            <option value="9">PowerPoint</option>
-                                                                            <option value="10">Animasi</option>
-                                                                            <option value="11">Tanah Liat</option>
-                                                                    </select>
-                            </div>
-                            <div class="mt-3 d-flex justify-content-end">
-                                <button type="submit" class="btn-action">ok</button>
-                            </div>
-                        </form>
-                    </ul>
+                
+                <div class="menu">
+                    <button class="btn-menu active" id="btn-karya" fdprocessedid="29ete">Karya kamu</button>
+                    <button class="btn-menu" id="btn-tentang" fdprocessedid="bwlru">Tentang kamu</button>
                 </div>
-            </div>
-            <div class="artwork-content">
-                                    <div class="card-artwork">
+                <hr>
+                <div class="my-artworks">
+                    <div class="row">
+                    </div>
+                    <div class="action mt-2">
+                        <button type="button" class="btn-action" data-bs-toggle="modal" data-bs-target="#modalListDelete" fdprocessedid="wxpbm">Hapus</button>
+                        <!-- Modal -->
+                        <div class="modal fade" id="modalListDelete" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Hapus Karya</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <table class="table table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">No</th>
+                                                    <th scope="col">Foto</th>
+                                                    <th scope="col">Deskripsi</th>
+                                                    <th scope="col">Kategori</th>
+                                                    <th scope="col">Action</th>
+                                                </tr>
+                                            </thead>
+                                            
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">1</th>
+                                                    <td><img src="storage/artwork/2GgtAm1hMv47H0hG8ZwLAiGAaFZ82eVBHriU7rC8.png" alt="artwork" width="50px"></td>
+                                                    <td class="description">...</td>
+                                                    <td>Digital Art</td>
+                                                    <td>
+                                                        <form action="profile/1" method="POST">
+                                                            <input type="hidden" name="_method" value="delete">
+                                                            <input type="hidden" name="_token" value="nBFRuXRqZ6HqLD4hFM91lsMnlLQDnOpKCzJbuXYV" autocomplete="off">
+                                                            <button class="btn-delete" onclick="return confirm('Are you sure?')">Hapus</button>
+                                                        </form>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <div class="dropdown">
+                        <button class="btn-action" type="button" data-bs-toggle="dropdown" fdprocessedid="egsx9h">Unggah</button>
+                        <ul class="dropdown-menu upload">
+                            <form action="profile" method="POST" enctype="multipart/form-data">
+                                <input type="hidden" name="_token" value="nBFRuXRqZ6HqLD4hFM91lsMnlLQDnOpKCzJbuXYV" autocomplete="off">
+                                <div class="mb-3">
+                                    <input type="file" class="form-control" id="inputfile" aria-describedby="inputgroupfile" aria-label="Upload" name="image">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="description">Tambahkan deskripsi</label>
+                                    <textarea type="text" name="description" id="description"></textarea>
+                                </div>
+                                <div class="mb-5">
+                                    <select class="form-select" aria-label="select-category" name="category_id">
+                                        <option selected="">Tambahkan kategori</option>
+                                        <option value="1">Digital Art</option>
+                                        <option value="2">Poster</option>
+                                        <option value="3">Web Design</option>
+                                        <option value="4">Wallpaper</option>
+                                        <option value="5">Kerajinan Tangan</option>
+                                        <option value="6">Ilustrasi</option>
+                                        <option value="7">Portofolio</option>
+                                        <option value="8">Typography</option>
+                                        <option value="9">PowerPoint</option>
+                                        <option value="10">Animasi</option>
+                                        <option value="11">Tanah Liat</option>
+                                    </select>
+                                </div>
+                                <div class="mt-3 d-flex justify-content-end">
+                                    <button type="submit" class="btn-action">ok</button>
+                                </div>
+                            </form>
+                        </ul>
+                    </div>
+                </div>
+                <div class="artwork-content">
+                    <div class="card-artwork">
                         <img src="storage/artwork/2GgtAm1hMv47H0hG8ZwLAiGAaFZ82eVBHriU7rC8.png" alt="artwork">
                     </div>
-                
+                </div>
             </div>
-        </div>
         <div class="about-me">
             <div class="d-flex flex-row w-100 px-5">
                 <div class="col-lg-6 px-2">
@@ -196,22 +196,16 @@
             </div>
         </div>
     </div>
-    </section>
-
-    
-    
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-    
-    <script src="js/script.js"></script>
-
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
-    </script>
-
-    
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-
-
-
-<span id="PING_IFRAME_FORM_DETECTION" style="display: none;"></span></body></html>
+        </section>
+        
+            <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+        
+            <script src="script.js"></script>
+        
+            <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+            
+            <script src="jquery/jquery-3.7.1.min.js"></script>
+        
+            <span id="PING_IFRAME_FORM_DETECTION" style="display: none;"></span>
+    </body>
+</html>
