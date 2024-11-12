@@ -462,14 +462,17 @@ footer .footer-content {
 footer .footer-content .social {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: 10px;
 }
 
-footer .footer-content .social  i {
+footer .footer-content .social i {
     color: var(--background-color);
     font-size: 32px;
     width: auto;
     height: auto;
+    display: flex;
+    align-items: center;
 }
 
 footer .footer-content .social p {
@@ -477,6 +480,7 @@ footer .footer-content .social p {
     font-weight: 400;
     line-height: 36px;
     color: var(--background-color);
+    margin: 0;
 }
 /* Footer Section */
 
