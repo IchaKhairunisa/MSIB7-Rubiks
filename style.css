@@ -258,6 +258,11 @@ header nav {
     width: 114px;
 }
 
+benefits .benefit-content .card-cara .benefit-cara{
+    height: 110px;
+    width: 125px;
+}
+
 .benefits .benefit-content .card h2 {
     font-size: 18px;
     font-weight: 600;
