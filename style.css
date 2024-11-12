@@ -293,6 +293,7 @@ benefits .benefit-content .card-cara .benefit-cara{
     line-height: 72px;
     color: var(--grey-color);
 }
+
 .swiper {
     width: 70%;
     padding-top: 50px;
@@ -301,36 +302,44 @@ benefits .benefit-content .card-cara .benefit-cara{
 }
 
 .swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-position: center;
     background-size: cover;
-    width: 300px;
+    width: 100%;
     height: 300px;
 }
 
 .swiper-slide img {
     display: block;
     width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .swiper-button-next,
 .swiper-button-prev {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
     background-size: 70px;
     background-position: center;
     background-repeat: no-repeat;
     padding: 12px 24px;
 }
 
-.swiper-button-next::after,
-.swiper-button-prev::after {
-    content: "" !important;
+.swiper-button-next::after, .swiper-button-prev::after { content: "" !important; }
+
+.swiper-button-next { 
+    background-image: url(arrow-next.png);
+    right: 20px;
 }
 
-.swiper-button-next {
-    background-image: url(../images/arrow-right.png);
-}
-
-.swiper-button-prev {
-    background-image: url(../images/arrow-left.png);
+.swiper-button-prev { 
+    background-image: url(arrow-prev.png);
+    left: 20px;
 }
 
 .explore .others {
