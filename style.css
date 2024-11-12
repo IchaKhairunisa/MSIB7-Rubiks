@@ -466,7 +466,7 @@ footer .footer-content .social {
 }
 
 footer .footer-content .social  i {
-    color: #ffffff;
+    color: var(--background-color);
     font-size: 32px;
     width: auto;
     height: auto;
