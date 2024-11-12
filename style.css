@@ -8,10 +8,12 @@
 }
 
 :root {
-    --primary-color: #ff6969;
-    --secondary-color: #c70039;
-    --background-color: #fff5e0;
-    --text-color: #141e46;
+    --primary-color: #48CFCB;
+    --secondary-color: #229799;
+    --grey-color: #424242;
+    --background-color: #F5F5F5;
+    --text-color-dark: #141E46;
+    --text-color-bright: #F5F5F5;
 }
 
 body {
@@ -60,43 +62,45 @@ header nav {
     padding: 0 40px;
     font-size: 20px;
     font-weight: 400;
-    color: var(--text-color);
+    color: var(--text-color-dark);
     list-style: none;
 }
 
 .nav-links li a {
     transition: all 0.3s ease;
-    color: var(--text-color);
+    color: var(--text-color-dark);
     text-decoration: none;
     text-transform: uppercase;
 }
 
 .nav-links li a:hover {
     font-weight: 700;
+    color: var(--primary-color);
 }
 
 .nav-links .nav-item.active {
     font-weight: 700;
+    color: var(--primary-color);
 }
 
 .auth .btn-register,
 .auth .btn-login {
     text-transform: uppercase;
     text-decoration: none;
-    color: var(--text-color);
+    color: var(--text-color-bright);
     padding: 0 12px;
 }
 
 .auth .btn-register {
-    color: var(--text-color);
+    color: var(--text-color-dark);
     font-size: 20px;
     font-weight: 400;
     line-height: 30px;
 }
 
 .auth .btn-login {
-    background-color: var(--text-color);
-    color: var(--background-color);
+    background-color: var(--primary-color);
+    color: var(--text-color-bright);
     padding: 4px 24px;
     font-size: 20px;
     font-weight: 700;
@@ -137,7 +141,7 @@ header nav {
     font-size: 45px;
     font-weight: 800;
     line-height: 56px;
-    color: var(--text-color);
+    color: var(--secondary-color);
 }
 
 .hero .hero-content p {
@@ -146,7 +150,7 @@ header nav {
     font-weight: 400;
     line-height: 24px;
     width: 40%;
-    color: var(--text-color);
+    color: var(--text-color-dark);
 }
 
 .hero .hero-content .share {
@@ -160,8 +164,8 @@ header nav {
     display: inline-block;
     padding: 16px 48px;
     text-decoration: none;
-    color: var(--background-color);
-    background-color: var(--text-color);
+    color: var(--text-color-bright);
+    background-color: var(--secondary-color);
     box-shadow: 0px 4px 4px 0px #00000080;
     font-size: 15px;
     font-weight: 600;
@@ -196,7 +200,7 @@ header nav {
     font-size: 48px;
     font-weight: 600;
     line-height: 72px;
-    color: var(--background-color);
+    color: var(--grey-color);
 }
 
 .about .about-content {
@@ -211,7 +215,7 @@ header nav {
     font-size: 18px;
     font-weight: 400;
     line-height: 27px;
-    color: var(--background-color);
+    color: var(--grey-color);
 }
 
 .benefits {
@@ -226,7 +230,7 @@ header nav {
     font-size: 48px;
     font-weight: 600;
     line-height: 72px;
-    color: var(--text-color);
+    color: var(--secondary-color);
 }
 
 .benefits .benefit-content {
@@ -245,7 +249,7 @@ header nav {
     border-radius: 0;
     height: 324px;
     width: 324px;
-    background-color: var(--primary-color);
+    background-color: var(--grey-color);
     box-shadow: 0px 4px 4px 0px #000000b2;
 }
 
@@ -258,7 +262,7 @@ header nav {
     font-size: 18px;
     font-weight: 600;
     line-height: 27px;
-    color: var(--text-color);
+    color: var(--text-color-bright);
 }
 
 .benefits .benefit-content .card p {
@@ -267,7 +271,7 @@ header nav {
     font-weight: 400;
     line-height: 21px;
     text-align: center;
-    color: var(--text-color);
+    color: var(--text-color-bright);
 }
 
 .explore {
@@ -282,7 +286,7 @@ header nav {
     font-size: 48px;
     font-weight: 600;
     line-height: 72px;
-    color: var(--background-color);
+    color: var(--grey-color);
 }
 .swiper {
     width: 70%;
@@ -336,7 +340,7 @@ header nav {
     padding: 16px 76px;
     text-decoration: none;
     color: var(--background-color);
-    background-color: var(--text-color);
+    background-color: var(--text-color-dark);
     box-shadow: 0px 4px 4px 0px #00000080;
     font-size: 15px;
     font-weight: 600;
@@ -359,7 +363,7 @@ header nav {
     font-size: 52px;
     font-weight: 600;
     line-height: 78px;
-    color: var(--text-color);
+    color: var(--text-color-dark);
 }
 
 .exploration .exploration-category {
@@ -370,7 +374,7 @@ header nav {
 
 .choice-chip-container .choice-chip {
     background-color: var(--background-color);
-    border: 1px solid var(--text-color);
+    border: 1px solid var(--text-color-dark);
     border-radius: 10px;
     padding: 0 24px;
     font-size: 20px;
@@ -379,14 +383,14 @@ header nav {
 }
 
 .choice-chip-container .choice-chip.active {
-    background-color: var(--text-color);
+    background-color: var(--text-color-dark);
     color: var(--background-color);
 }
 
 .exploration hr {
     width: 90%;
     margin-top: 50px;
-    border: 1px solid var(--text-color);
+    border: 1px solid var(--text-color-dark);
 }
 
 .exploration .exploration-card {
@@ -440,7 +444,7 @@ header nav {
     font-size: 12px;
     font-weight: 400;
     line-height: 21px;
-    color: var(--text-color);
+    color: var(--text-color-dark);
 }
 /* End Exploration Section */
 
@@ -494,7 +498,7 @@ footer .footer-content .social p {
     align-items: center;
     padding: 8px 36px 60px 36px;
     width: 480px;
-    background-color: var(--text-color);
+    background-color: var(--text-color-dark);
 }
 
 .container-auth .box-form h3 {
@@ -596,7 +600,7 @@ footer .footer-content .social p {
     font-size: 18px;
     font-weight: 400;
     line-height: 20px;
-    color: var(--text-color);
+    color: var(--text-color-dark);
 }
 
 .detail-exploration .content-left .author-info a {
@@ -605,7 +609,7 @@ footer .footer-content .social p {
     font-weight: 500;
     line-height: 21px;
     color: var(--background-color);
-    background-color: var(--text-color);
+    background-color: var(--text-color-dark);
     border-radius: 6px;
     text-decoration: none;
 }
@@ -632,7 +636,7 @@ footer .footer-content .social p {
 .detail-exploration .content-right .description {
     width: 450px;
     padding: 20px;
-    border: 1px solid var(--text-color);
+    border: 1px solid var(--text-color-dark);
     border-radius: 10px;
 }
 
@@ -664,7 +668,7 @@ footer .footer-content .social p {
     font-size: 16px;
     font-weight: 400;
     line-height: 24px;
-    color: var(--text-color);
+    color: var(--text-color-dark);
 }
 
 .detail-exploration .content-right .like-comment .comment button {
@@ -678,7 +682,7 @@ footer .footer-content .social p {
     width: 450px;
     flex-direction: column;
     border-radius: 8px;
-    border: 1px solid var(--text-color);
+    border: 1px solid var(--text-color-dark);
     padding: 8px;
     margin-top: 8px;
 }
@@ -699,7 +703,7 @@ footer .footer-content .social p {
 .detail-exploration .content-right .textarea {
     width: 270px;
     border-radius: 10px;
-    border: 1px solid var(--text-color);
+    border: 1px solid var(--text-color-dark);
     background-color: var(--background-color);
     padding: 8px;
 }
@@ -719,9 +723,9 @@ footer .footer-content .social p {
     font-size: 14px;
     font-weight: 400;
     line-height: 21px;
-    color: var(--text-color);
+    color: var(--text-color-dark);
     background-color: var(--background-color);
-    border: 1px solid var(--text-color);
+    border: 1px solid var(--text-color-dark);
     border-radius: 3px;
     padding: 2px 6px;
     margin-top: 8px;
@@ -761,8 +765,8 @@ footer .footer-content .social p {
     font-size: 16px;
     font-weight: 400;
     line-height: 24px;
-    color: var(--text-color);
-    color: var(--text-color) !important;
+    color: var(--text-color-dark);
+    color: var(--text-color-dark) !important;
     text-decoration: none !important;
 }
 /* End Dropdown Profile */
@@ -793,14 +797,14 @@ footer .footer-content .social p {
     font-size: 32px;
     font-weight: 700;
     line-height: 48px;
-    color: var(--text-color);
+    color: var(--text-color-dark);
 }
 
 .profile-container .profile-info .detail p {
     font-size: 20px;
     font-weight: 400;
     line-height: 30px;
-    color: var(--text-color);
+    color: var(--text-color-dark);
 }
 
 .profile-container .profile-info .detail .change-photo {
@@ -808,7 +812,7 @@ footer .footer-content .social p {
     font-weight: 400;
     line-height: 24px;
     color: var(--background-color);
-    background-color: var(--text-color);
+    background-color: var(--text-color-dark);
     border-radius: 10px;
     padding: 4px 12px;
 }
@@ -843,19 +847,19 @@ footer .footer-content .social p {
     font-size: 20px;
     font-weight: 500;
     line-height: 30px;
-    border: 1px solid var(--text-color);
+    border: 1px solid var(--text-color-dark);
     border-radius: 10px;
-    color: var(--text-color);
+    color: var(--text-color-dark);
     background-color: var(--background-color);
 }
 
 .profile-container .menu .btn-menu.active {
-    background-color: var(--text-color);
+    background-color: var(--text-color-dark);
     color: var(--background-color);
 }
 
 .profile-container hr {
-    border: 1px solid var(--text-color);
+    border: 1px solid var(--text-color-dark);
 }
 
 .profile-container .my-artworks {
@@ -931,7 +935,7 @@ footer .footer-content .social p {
 .profile-container .my-artworks .form-control {
     width: 100%;
     height: 195px;
-    background-color: var(--text-color) !important;
+    background-color: var(--text-color-dark) !important;
     border-radius: 10px;
     box-shadow: 0px 4px 7px 4px #00000040;
     border: none;
@@ -942,14 +946,14 @@ footer .footer-content .social p {
     font-size: 16px;
     font-weight: 400;
     line-height: 24px;
-    color: var(--text-color);
+    color: var(--text-color-dark);
 }
 
 .profile-container .my-artworks form textarea {
     width: 100%;
     padding: 8px;
     border-radius: 10px;
-    border: 1px solid var(--text-color);
+    border: 1px solid var(--text-color-dark);
     background-color: var(--background-color) !important;
 }
 
@@ -958,7 +962,7 @@ footer .footer-content .social p {
     padding: 8px;
     border-radius: 5px;
     color: var(--background-color);
-    background-color: var(--text-color) !important;
+    background-color: var(--text-color-dark) !important;
 }
 
 .profile-container .my-artworks .table .description {
@@ -977,7 +981,7 @@ footer .footer-content .social p {
     width: 100%;
     padding: 8px;
     border-radius: 10px;
-    border: 1px solid var(--text-color);
+    border: 1px solid var(--text-color-dark);
     background-color: var(--background-color) !important;
 }
 /* EndProfile Section */
