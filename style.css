@@ -467,7 +467,7 @@ footer .footer-content .social {
 }
 
 footer .footer-content .social i {
-    color: var(--background-color);
+    color: var(--grey-color);
     font-size: 32px;
     width: auto;
     height: auto;
@@ -479,7 +479,7 @@ footer .footer-content .social p {
     font-size: 24px;
     font-weight: 400;
     line-height: 36px;
-    color: var(--background-color);
+    color: var(--grey-color);
     margin: 0;
 }
 /* Footer Section */
