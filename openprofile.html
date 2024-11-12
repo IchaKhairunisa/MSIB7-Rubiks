@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="csrf-token" content="Ws1OIrP2qAwqbgJa2NET8megZjPDIfZGccNJg1ot">
+        <title>Rubiks</title>
+
+        <link rel="stylesheet" href="style.css">
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet"/>
+    </head>
+
+    <body class="bg-gray-100 font-roboto">
+        <header>
+            <img src="logo/logo-rubiks.png" alt="logo" class="logo">
+            <nav>
+                <ul class="nav-links">
+                    <li class="nav-item "><a href="/">Landing Page</a></li>
+                    <li class="nav-item active"><a href="eksplorasi">Eksplorasi</a></li>
+                    <li class="nav-item"><a href="#aboutme">Tentang Kami</a></li>
+                </ul>
+            <div class="auth">
+                <div class="dropdown">
+                    <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                        <img src="profilepic.png" width="50"/>
+                        <span class="text-lg text-gray-800">" alt="Default" width="50px" style="border-radius: 50%">
+                    </button>
+                    <ul class="dropdown-menu">
+                        <div class="profile">
+                            <img src="profilepic.png" width="50"/>
+                            <span class="text-lg text-gray-800">" alt="Default" width="50px" style="border-radius: 50%">
+                            <h6>Admin</h6>
+                        </div>
+                        <div class="menu mt-2">
+                            <a href="profile">Profil</a>
+                            <!-- <a href="#">Unggah Karya</a> -->
+                            <a href="logout" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            keluar
+                            </a>
+                            <form id="logout-form" action="logout" method="POST" style="display: none;">
+                                <input type="hidden" name="_token" value="nBFRuXRqZ6HqLD4hFM91lsMnlLQDnOpKCzJbuXYV" autocomplete="off">                            
+                            </form>
+                        </div>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <div class="flex justify-center mt-8">
+            <div class="flex flex-col items-center">
+                <div class="flex items-center space-x-4">
+                    <i class="fas fa-chevron-left text-2xl text-gray-600">
+                    </i>
+                    <img alt="User Avatar" class="h-12 rounded-full" height="50" src="profilepic.png" width="50"/>
+                    <span class="text-lg text-gray-800">
+                    David
+                    </span>
+                    <button class="bg-blue-800 text-white px-4 py-1 rounded-full">
+                    kunjungi profil
+                    </button>
+                </div>
+                <img alt="Collage Image" class="mt-4 rounded-lg shadow-lg" height="500" src="openimage.png" width="400"/>
+            </div>
+            <div class="ml-8">
+                <div class="bg-white p-4 rounded-lg shadow-lg mb-4 w-80">
+                    <p class="text-gray-800">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ac tortor dignissim convallis aenean et tortor at risus.
+                    </p>
+                </div>
+                <div class="flex items-center space-x-4 mb-4">
+                    <i class="fas fa-heart text-2xl text-gray-600">
+                    </i>
+                    <i class="fas fa-comment text-2xl text-gray-600">
+                    </i>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow-lg w-80">
+                    <textarea class="w-full h-24 p-2 border border-gray-300 rounded-lg" placeholder="Pop up Text Area"></textarea>
+                    <button class="bg-gray-800 text-white px-4 py-1 mt-2 rounded-full">
+                    ok
+                    </button>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
