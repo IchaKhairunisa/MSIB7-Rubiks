@@ -461,12 +461,15 @@ footer .footer-content {
 
 footer .footer-content .social {
     display: flex;
+    align-items: center;
     gap: 10px;
 }
 
-footer .footer-content .social img {
-    width: 40px;
-    height: 40px;
+footer .footer-content .social  i {
+    color: #ffffff;
+    font-size: 32px;
+    width: auto;
+    height: auto;
 }
 
 footer .footer-content .social p {
