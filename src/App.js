@@ -1,25 +1,68 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import Daftar from './pages/Daftar';
+import EditProfile from './pages/EditProfile';
+import Eksplorasi from './pages/Eksplorasi';
+import EksplorasiLogin from './pages/EksplorasiLogin';
+import KaryaExplore from './pages/KaryaExplore';
+import KaryaPengguna from './pages/KaryaPengguna';
+import LandingPage from './pages/LandingPage';
+import LandingLogin from './pages/LandingLogin';
+import Masuk from './pages/Masuk';
+import TentangKamu from './pages/TentangKamu';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import Header from './components/Header';
+import HeaderLogin from './components/HeaderLogin';
+import Footer from './components/Footer';
 
-function App() {
+function Layout() {
+  const location = useLocation();
+
+  const noHeaderFooterRoutes = ['/Masuk', '/Daftar'];
+
+  const header1Routes = [
+    '/EditProfile',
+    '/EksplorasiLogin',
+    '/KaryaPengguna',
+    '/KaryaExplore',
+    '/TentangKamu',
+    '/LandingLogin'
+  ];
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {/* Menampilkan Header1 jika di salah satu rute yang sesuai */}
+      {header1Routes.includes(location.pathname) ? (
+        <HeaderLogin />
+      ) : !noHeaderFooterRoutes.includes(location.pathname) ? (
+        <Header />
+      ) : null}
+
+      <Routes>
+        <Route path='/LandingPage' element={<LandingPage />} />
+        <Route path='/EditProfile' element={<EditProfile />} />
+        <Route path='/Eksplorasi' element={<Eksplorasi />} />
+        <Route path='/EksplorasiLogin' element={<EksplorasiLogin />} />
+        <Route path='/KaryaExplore' element={<KaryaExplore />} />
+        <Route path='/KaryaPengguna' element={<KaryaPengguna />} />
+        <Route path='/Daftar' element={<Daftar />} />
+        {/* <Route path='/Login' element={<Login />} /> */}
+        <Route path='/Masuk' element={<Masuk />} />
+        <Route path='/TentangKamu' element={<TentangKamu />} />
+        <Route path='/LandingLogin' element={<LandingLogin />} />
+      </Routes>
+
+      {/* Hanya tampilkan Footer jika bukan di rute tanpa Header/Footer */}
+      {!noHeaderFooterRoutes.includes(location.pathname) && <Footer />}
     </div>
   );
 }
 
-export default App;
+function App() {
+  return (
+    <BrowserRouter>
+      <Layout />
+    </BrowserRouter>
+  );
+}
+
+export default App
