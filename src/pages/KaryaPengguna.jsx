@@ -2,7 +2,7 @@ import React from 'react'
 
 function KaryaPengguna() {
   return (
-    <div>K
+    <div>
       <section>
         <div className="profile-container">
           <a href="/EkplorasiLogin">
@@ -11,7 +11,7 @@ function KaryaPengguna() {
           <div className="profile-info">
             <img src="/assets/images/Akun.png" alt="profile" />
             <div className="detail">
-              <h4>Admin</h4>
+              <h4>Lili</h4>
               <p></p>
             </div>
           </div>

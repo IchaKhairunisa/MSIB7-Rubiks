@@ -11,14 +11,16 @@ function TentangKamu() {
           <div className="profile-info">
             <img src="/assets/images/Akun.png" alt="profile" />
             <div className="detail">
-              <h4>Admin</h4>
+              <h4>Lili</h4>
               <p></p>
             </div>
           </div>
 
           <div className="menu">
-            <button className="btn-menu" id="btn-karya" fdprocessedid="6etnix">Karya kamu</button>
-            <button className="btn-menu active" id="btn-tentang" fdprocessedid="m52kcb">Tentang kamu</button>
+            {/* <button className="btn-menu" id="btn-karya" fdprocessedid="6etnix">Karya kamu</button>
+            <button className="btn-menu active" id="btn-tentang" fdprocessedid="m52kcb">Tentang kamu</button> */}
+            <a href='/KaryaPengguna'><button className="btn-menu" id="btn-karya" fdprocessedid="6etnix">Karya kamu</button></a>
+            <a href="/TentangKamu"><button className="btn-menu active" id="btn-tentang" fdprocessedid="m52kcb">Tentang kamu</button></a>
           </div>
           <hr />
           <div className="my-artworks" style={{display: 'none'}}>

@@ -19,7 +19,7 @@ function HeaderLogin() {
                     <ul className="dropdown-menu">
                         <div className="profile">
                             <img src="/assets/images/Akun.png" alt="Default" width="50px" style={{borderRadius: '50%'}} />
-                            <h6>Admin</h6>
+                            <h6>Lili</h6>
                         </div>
                         <div className="menu mt-2">
                             <a href="/KaryaPengguna">Profil</a>

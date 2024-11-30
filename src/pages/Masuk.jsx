@@ -1,79 +1,90 @@
-import React from 'react'
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function Masuk() {
+  const [formData, setFormData] = useState({
+    username: '',
+    password: '',
+  });
+
+  const navigate = useNavigate(); // Hook untuk navigasi
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch('http://localhost:5000/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        alert(result.message); // Tampilkan pesan sukses
+        navigate('/Eksplorasi'); // Arahkan ke halaman Eksplorasi setelah login berhasil
+      } else {
+        alert(result.message); // Tampilkan pesan error jika login gagal
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      alert('Terjadi kesalahan. Coba lagi nanti.');
+    }
+  };
+
   return (
     <div>
-      <a href="/LandingPage" className='back-link'>
-        <img src="/assets/images/arrow-left.png" alt="back" width="47px" className="back"/>
+      <a href="/LandingPage" className="back-link">
+        <img src="/assets/images/arrow-left.png" alt="back" width="47px" className="back" />
       </a>
       <div className="container">
-        {/* Logo Section */}
         <div className="logo">
           <img src="/assets/images/logo-rubiks.png" alt="Logo" />
         </div>
 
-        {/* Login Form Section */}
         <div className="login-form">
           <h2>MASUK</h2>
-          <form>
-            <label for="username">Username</label>
-            <input type="text" id="username" name="username" placeholder="Username" />
-            <label for="password">Password</label>
+          <form onSubmit={handleSubmit}>
+            <label htmlFor="username">Username</label>
+            <input
+              type="text"
+              id="username"
+              name="username"
+              placeholder="Username"
+              value={formData.username}
+              onChange={handleChange}
+              required
+            />
+
+            <label htmlFor="password">Password</label>
             <div className="password-container">
-              <input type="password" id="password" name="password" placeholder="Password" />
-              <span className="toggle-password"></span>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Password"
+                value={formData.password}
+                onChange={handleChange}
+                required
+              />
             </div>
-            <a href="/">
-              <div className="button">
-                {/* <button type="submit" className="btn-auth" fdprocessedid="tu8yk">MASUK</button> */}
-                <a href="/EksplorasiLogin" className="btn-auth">Masuk</a>
-                <a href="/Daftar" className="btn-auth">DAFTAR</a>
-              </div>
-            </a>
+
+            <div className="button-container">
+              {/* <button type="submit" className="signup-btn">MASUK</button> */}
+              <a href="/EksplorasiLogin" className="signup-btn">MASUK</a>
+            </div>
           </form>
         </div>
       </div>
     </div>
-
-    // <div id="app">
-    //   <main className="py-4">
-    //     <div className="container-auth">
-    //       <a href="/LandingPage">
-    //         <img src="/assets/images/arrow-left.png" alt="back" width="47px" className="back"/>
-    //       </a>
-    //       <div className="header-content mt-4 d-flex">
-    //         {/* Wrapping logo and form inside a container to place them side by side */}
-    //         <div className="logo-container">
-    //           <img src="/assets/images/logo-rubiks.png" alt="logo" width="182px"/>
-    //         </div>
-    //         <div className="box-form mt-2">
-    //           <h3>MASUK</h3>
-    //           <form action="/Masuk" method="POST" className="mt-5">
-    //             <input type="hidden" name="_token" value="ROwWe4aM67NQH3Ktv9HH10ZtlIIyhZqGSJH2LtgQ" autoComplete="off"/>
-    //             <div className="mb-4 w-100">
-    //               <label for="email">Email Address</label>
-    //               <input id="email" type="email" className="form-control " name="email" value="" required="" autoComplete="email"/>
-    //             </div>
-    //             <div className="mb-4 w-100">
-    //               <label for="password">Password</label>
-    //               <div className="pass">
-    //                 <input id="password" type="password" className="form-control " name="password" required="" autoComplete="current-password"/>
-    //                 <span toggle="#password" className="fa fa-fw fa-eye field-icon toggle-password"></span>
-    //               </div>
-    //             </div>
-    //             <div className="button">
-    //               <button type="submit" className="btn-auth">
-    //                 MASUK
-    //               </button>
-    //               <a href="/Daftar" className="btn-auth">DAFTAR</a>
-    //             </div>
-    //           </form>
-    //         </div>
-    //       </div>
-    //     </div>
-    //   </main>
-    // </div>
-  )
+  );
 }
 
 export default Masuk;
