@@ -8,6 +8,6 @@ router.post("/works", uploadFiles, WorksController.createWorks);
 router.get("/works", WorksController.getAllWorks);
 router.get("/works/:worksId", WorksController.getWorksById);
 router.put("/works/:worksId", uploadFiles, WorksController.updateWorksById);
-router.delete("/works/:worksId", WorksController.deleteWorksById);
+router.delete("/works/:id", WorksController.deleteWorksById);
 
 export default router;

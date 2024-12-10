@@ -33,8 +33,9 @@ function LandingPage() {
           <div className="hero-content">
             <h1>Bikin karya? <br />Ayo, tunjukin karyamu!</h1>
             <p><strong>Ruang Bagi Karya Seniman</strong> hadir untuk memberikan tempat bagi semua orang membagikan karya dan portofolio</p>
-            <div className="share">
-              <a href="/Masuk" className="btn-share">Share Sekarang</a>
+            <div className="share ">
+              <a href="/Masuk" className="btn-share rounded-lg">Share Sekarang
+              </a>
             </div>
           </div>
           <div className="hero-image">
@@ -42,10 +43,10 @@ function LandingPage() {
           </div>
         </div>
 
-        <div className="about" id="aboutme">
+        <div className="about text-Dark" id="aboutme">
           <h1>Tentang Kami</h1>
           <div className="about-content mt-4">
-            <p>
+            <p className='text-Dark'>
               Selamat datang di RUBIKS, tempat bagi para kreator yang ingin berbagi karya dan portofolio mereka dengan dunia. Kami hadir dengan memberikan platform yang memungkinkan individu untuk memperluas jangkauan dan pengaruh dari
               karya-karya mereka. <br />
               RUBIKS menyediakan ruang untuk para kreator memamerkan bakat mereka dalam berbagai bentuk, mulai dari gambar, desain, tulisan, hingga karya-karya kreatif lainnya. <br />
@@ -58,17 +59,17 @@ function LandingPage() {
         <div className="benefits">
           <h1>Fitur Utama</h1>
           <div className="benefit-content">
-            <div className="card">
+            <div className="card rounded-lg bg-Dark shadow-md transform transition-transform duration-300 hover:scale-105 p-2 max-w-sm">
               <img src="/assets/images/benefit-1.png" alt="benefit1" className="benefit-img mt-3" />
               <h2 className="mt-2">Share Karya Kamu</h2>
               <p className="mt-2">kamu bisa mengekspresikan diri kamu, memperluas jaringan, dan memperoleh inspirasi dari komunitas yang beragam.</p>
             </div>
-            <div className="card">
+            <div className="card rounded-lg bg-Dark shadow-md transform transition-transform duration-300 hover:scale-105 p-2 max-w-sm">
               <img src="/assets/images/benefit-2.png" alt="benefit1" className="benefit-img mt-3" />
               <h2 className="mt-2">Unggah Karya</h2>
               <p className="mt-2">memberikan akses yang lebih mudah bagi kamu untuk memperkenalkan karya-karya kamu kepada pihak organisasi atau perusahaan dibidang kreatif.</p>
             </div>
-            <div className="card">
+            <div className="card rounded-lg bg-Dark shadow-md transform transition-transform duration-300 hover:scale-105 p-2 max-w-sm">
               <img src="/assets/images/benefit-3.png" alt="benefit1" className="benefit-img mt-3" />
               <h2 className="mt-2">Sukai dan komentar</h2>
               <p className="mt-2">memberikan kamu kesempatan untuk menyatakan apresiasi, memberikan umpan balik, dan memperdalam hubungan antar pengguna serta konten yang dibagikan.</p>
@@ -124,19 +125,19 @@ function LandingPage() {
             className="mySwiper"
           >
             <SwiperSlide>
-              <img style={{ width: '100%', height: 'auto', objectFit: 'cover' }} src="/assets/images/lp-exsplore1.png" alt="Explore 1" />
+              <img className='transition-transform duration-300 hover:scale-110' style={{ width: '100%', height: 'auto', objectFit: 'cover' }} src="/assets/images/lp-exsplore1.png" alt="Explore 1" />
             </SwiperSlide>
             <SwiperSlide>
-              <img style={{ width: '100%', height: 'auto', objectFit: 'cover' }} src="/assets/images/lp-exsplore2.png" alt="Explore 2" />
+              <img className='transition-transform duration-300 hover:scale-110' style={{ width: '100%', height: 'auto', objectFit: 'cover' }} src="/assets/images/lp-exsplore2.png" alt="Explore 2" />
             </SwiperSlide>
             <SwiperSlide>
-              <img style={{ width: '100%', height: 'auto', objectFit: 'cover' }} src="/assets/images/lp-exsplore3.png" alt="Explore 3" />
+              <img className='transition-transform duration-300 hover:scale-110' style={{ width: '100%', height: 'auto', objectFit: 'cover' }} src="/assets/images/lp-exsplore3.png" alt="Explore 3" />
             </SwiperSlide>
             <SwiperSlide>
-              <img style={{ width: '100%', height: 'auto', objectFit: 'cover' }} src="/assets/images/lp-exsplore4.png" alt="Explore 4" />
+              <img className='transition-transform duration-300 hover:scale-110' style={{ width: '100%', height: 'auto', objectFit: 'cover' }} src="/assets/images/lp-exsplore4.png" alt="Explore 4" />
             </SwiperSlide>
             <SwiperSlide>
-              <img style={{ width: '100%', height: 'auto', objectFit: 'cover' }} src="/assets/images/lp-exsplore5.png" alt="Explore 5" />
+              <img className='transition-transform duration-300 hover:scale-110' style={{ width: '100%', height: 'auto', objectFit: 'cover' }} src="/assets/images/lp-exsplore5.png" alt="Explore 5" />
             </SwiperSlide>
           </Swiper>
 
@@ -145,7 +146,7 @@ function LandingPage() {
           <div ref={prevRef} className="swiper-button-prev"></div>
 
           <div className="others">
-            <a href="/Eksplorasi" className="btn-other">Lainnya</a>
+            <a href="/Eksplorasi" className="btn-other rounded-lg bg-Green text-white hover:font-bold">Lainnya</a>
           </div>
         </div>
 

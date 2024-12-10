@@ -22,7 +22,7 @@ function KaryaPengguna() {
       formData.append('photos', saveImage);
       formData.append('description', description); 
       formData.append('category', category); 
-
+  
       try {
         const response = await fetch('http://localhost:4000/works', {
           method: 'POST',
@@ -32,12 +32,26 @@ function KaryaPengguna() {
         if (data.status === true) {
           console.log('Data berhasil diupload:', data);
           alert('Karya Kamu Berhasil diupload!');
+  
+          // Tambahkan karya yang baru ke state works
+          setWorks(prevWorks => [
+            ...prevWorks,
+            {
+              id: data.data.id,
+              title: data.data.title,
+              imageUrl: data.data.imageUrl,
+              description: data.data.description,
+              category: data.data.category,
+              author: data.data.author,
+            },
+          ]);
         }
       } catch (error) {
         console.error('Error uploading file:', error);
       }
     }
   }
+  
 
   // Get Data Karya
   const [works, setWorks] = useState([]);
@@ -62,6 +76,27 @@ function KaryaPengguna() {
     fetchWorks();
   }, []);
 
+  async function handleDelete(id) {
+    if (window.confirm("Apakah Anda yakin ingin menghapus karya ini?")) {
+      try {
+        const response = await fetch(`http://localhost:4000/works/${id}`, {
+          method: 'DELETE',
+        });
+  
+        const result = await response.json();
+        if (result.status) {
+          alert("Karya berhasil dihapus!");
+          setWorks(prevWorks => prevWorks.filter(work => work.id !== id));
+        } else {
+          alert("Gagal menghapus karya.");
+        }
+      } catch (error) {
+        console.error("Error deleting work:", error);
+        alert("Terjadi kesalahan saat menghapus karya.");
+      }
+    }
+  }
+  
   return (
     <div className='w-full'>
       <section>
@@ -73,7 +108,6 @@ function KaryaPengguna() {
             <img src="/assets/images/Akun.png" alt="profile" />
             <div className="detail">
               <h4>Admin</h4>
-              <p></p>
             </div>
           </div>
           <div className="menu mb-3">
@@ -83,7 +117,7 @@ function KaryaPengguna() {
           <hr />
           <div className="my-artworks">
             <div className="action mt-5 mb-3">
-              <button type="button" className="btn-action" data-bs-toggle="modal" data-bs-target="#modalListDelete" fdprocessedid="zet1w">Hapus</button>
+              <button type="button" className="btn-action text-Dark" data-bs-toggle="modal" data-bs-target="#modalListDelete" fdprocessedid="zet1w">Hapus</button>
               {/* Modal untuk Hapus */}
               <div className="modal fade" id="modalListDelete" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div className="modal-dialog modal-lg modal-dialog-centered">
@@ -104,20 +138,36 @@ function KaryaPengguna() {
                           </tr>
                         </thead>
                         <tbody>
-                          <tr>
-                            <th scope="row">1</th>
-                            <td><img src="/assets/public/artwork/08J58TD0H11hWSY0eHiobrL9xCbdZzqFmKpCoOSg.png" alt="artwork" width="50px" /></td>
-                            <td className="description">...</td>
-                            <td>Digital Art</td>
-                            <td>
-                              <form action="profile/1" method="POST">
-                                <input type="hidden" name="_method" value="delete" />
-                                <input type="hidden" name="_token" value="nq0ImsgunkckeF9mhr30EeyT8pltYMjGlIZzrbv2" autoComplete="off" />
-                                <button className="btn-delete" onClick="return confirm('Are you sure?')">Hapus</button>
-                              </form>
-                            </td>
-                          </tr>
-                        </tbody>
+  {works.length > 0 ? (
+    works.map((work, index) => (
+      <tr key={work.id}>
+        <th scope="row">{index + 1}</th>
+        <td>
+          <img 
+            src={`http://localhost:4000/api/images/${work.imageUrl.replace('public/images/', '')}`} 
+            alt={work.title} 
+            width="50px" 
+          />
+        </td>
+        <td className="description">{work.description}</td>
+        <td>{work.category}</td>
+        <td>
+          <button
+            className="btn-delete"
+            onClick={() => handleDelete(work.id)}
+          >
+            Hapus
+          </button>
+        </td>
+      </tr>
+    ))
+  ) : (
+    <tr>
+      <td colSpan="5">Tidak ada karya untuk ditampilkan</td>
+    </tr>
+  )}
+</tbody>
+
                       </table>
                     </div>
                   </div>
@@ -125,14 +175,14 @@ function KaryaPengguna() {
               </div>
               {/* Unggah Karya */}
               <div className="dropdown">
-                <button className="btn-action" type="button" data-bs-toggle="dropdown">Unggah Karya</button>
-                <div className="dropdown-menu upload mt-2">
+                <button className="btn-action" type="button" data-bs-toggle="dropdown">Unggah </button>
+                <div className="dropdown-menu upload mt-2 mb-5">
                   <form onSubmit={postWork}>
                     <div>
                       <label htmlFor="title">Judul Karya</label>
                       <input type="text" id="title" name="title" onChange={(e) => setTitle(e.target.value)} className="block p-2 font-mono w-full mb-5 text-xs text-Dark border border-Dark rounded-lg cursor-pointer bg-white"/>
                     </div>
-                    <div className="mb-3 mt-2">
+                    <div className="mb-3">
                       <label className="block mb-2 text-sm text-gray-900 dark:text-white font-bold">Upload Gambar</label>
                       <input
                           className="block p-2 font-mono w-full mb-5 text-xs text-white border border-Dark rounded-lg cursor-pointer bg-Dark"
@@ -187,20 +237,19 @@ function KaryaPengguna() {
               </div>
             </div>
           </div>
-
           <div className="artwork-content justify-center mt-5">
-  <div className="card-artwork">
+            <div className="card-artwork">
     <div className="card-artwork-description flex flex-wrap justify-center gap-4">
       {works.length > 0 ? (
         works.map((work, index) => (
           <div
             key={work.id}
-            className="work-card w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-4 bg-white border rounded-lg shadow-lg"
+            className="work-card w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-4 bg-white border rounded-lg shadow-lg transform transition-all duration-300 hover:scale-105"
           >
             <img
               src={`http://localhost:4000/api/images/${work.imageUrl.replace('public/images/', '')}`}
               alt={work.title}
-              className="work-image w-full h-64 object-cover rounded-md"
+              className="work-image w-full h-auto object-cover rounded-md"
             />
             <div className="flex flex-col justify-center items-center">
                 <h2 className="work-title mt-2 text-xl font-semibold">{work.title}</h2>
@@ -213,12 +262,9 @@ function KaryaPengguna() {
       ) : (
         <p>No works available</p>
       )}
-    </div>
-  </div>
-</div>
-
-
-
+              </div>
+            </div>
+          </div>
           <div className="about-me">
             <div className="d-flex flex-row w-100 px-5">
               <div className="col-lg-6 px-2">

@@ -13,8 +13,8 @@ function Masuk() {
         </div>
 
         {/* Login Form Section */}
-        <div className="login-form">
-          <h2>MASUK</h2>
+        <div className="login-form rounded-lg">
+          <h2>Login</h2>
           <form>
             <label for="username">Username</label>
             <input type="text" id="username" name="username" placeholder="Username" />
@@ -24,10 +24,12 @@ function Masuk() {
               <span className="toggle-password"></span>
             </div>
             <a href="/">
-              <div className="button">
+              <div className="mt-2">
                 {/* <button type="submit" className="btn-auth" fdprocessedid="tu8yk">MASUK</button> */}
-                <a href="/EksplorasiLogin" className="btn-auth">Masuk</a>
-                <a href="/Daftar" className="btn-auth">DAFTAR</a>
+                <button type="submit" className="btn-aut w-full bg-Green text-white p-2 rounded-lg hover:font-bold">Masuk</button>
+              </div>
+              <div className='mt-5'>
+              <p className='text-center text-white text-sm'>Kamu Belum Punya Akun? <a href="/Daftar" className='text-Green hover:font-bold'>DAFTAR</a></p>
               </div>
             </a>
           </form>
