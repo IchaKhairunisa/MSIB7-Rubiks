@@ -59,8 +59,8 @@ function Layout() {
 
 function App() {
   return (
-    <BrowserRouter>
-      <Layout />
+    <BrowserRouter className="w-full m-0 p-0">
+      <Layout className='w-full m-0 p-0' />
     </BrowserRouter>
   );
 }

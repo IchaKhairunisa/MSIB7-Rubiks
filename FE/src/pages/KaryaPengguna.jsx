@@ -2,7 +2,7 @@ import React from 'react'
 
 function KaryaPengguna() {
   return (
-    <div>
+    <div className='w-full'>
       <section>
         <div className="profile-container">
           <a href="/EkplorasiLogin">

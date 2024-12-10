@@ -2,8 +2,7 @@ import React from 'react'
 
 function Footer() {
   return (
-    <div>
-      <footer>
+      <footer className='w-full'>
         <div className="footer-content">
           <div className="social">
             <img src="/assets/images/instagram.png" alt="ig" />
@@ -19,7 +18,6 @@ function Footer() {
           </div>
         </div>
       </footer>
-    </div>
   )
 }
 
