@@ -33,7 +33,7 @@ app.use(express.static(resolve("public")));
 
 app.use(
   cors({
-    origin: "http://192.168.2.23:7000",
+    origin: "http://localhost:3000",
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
