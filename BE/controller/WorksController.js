@@ -7,18 +7,18 @@ class WorksController {
   
   async createWorks(req, res) {
     try {
-      const { title, description, category, author } = req.body;
+      const { description, category } = req.body;
       const files = req.files;
 
       const id = `works-${nanoid(8)}`;
       const newWorks = await prisma.work.create({
         data: {
           id: id,
-          title: title,
+          title: 'Karya',
           imageUrl: files[0].path,
           description: description,
           category: category,
-          author: author,
+          author: 'Admin',
         },
       });
       return res.status(200).json({
