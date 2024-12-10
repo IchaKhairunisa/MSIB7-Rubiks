@@ -65,19 +65,13 @@ function KaryaPengguna() {
               </div>
               {/* <!-- Upload File --> */}
               <div className="dropdown">
-  <button className="btn-action" type="button" data-bs-toggle="dropdown">Unggah</button>
-  <ul className="dropdown-menu upload mt-2">
-    <form
+                <button className="btn-action" type="button" data-bs-toggle="dropdown">Unggah</button>
+                <ul className="dropdown-menu upload mt-2">
+                  <form
       action="http://localhost:4000/works"
       method="POST"
       encType="multipart/form-data"
     >
-      <input
-        type="hidden"
-        name="_token"
-        value="nq0ImsgunkckeF9mhr30EeyT8pltYMjGlIZzrbv2"
-        autoComplete="off"
-      />
       <div className="mb-3 mt-2">
         <label
           className="block mb-2 text-sm text-gray-900 dark:text-white font-bold"
