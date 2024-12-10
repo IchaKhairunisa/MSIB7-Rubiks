@@ -63,42 +63,76 @@ function KaryaPengguna() {
                   </div>
                 </div>
               </div>
-
+              {/* <!-- Upload File --> */}
               <div className="dropdown">
-                <button className="btn-action" type="button" data-bs-toggle="dropdown" fdprocessedid="y1c8oa">Unggah</button>
-                <ul className="dropdown-menu upload mt-2">
-                  <form action="profile" method="POST" enctype="multipart/form-data">
-                    <input type="hidden" name="_token" value="nq0ImsgunkckeF9mhr30EeyT8pltYMjGlIZzrbv2" autoComplete="off" />
-                    <div className="mb-3 mt-2">
-                      <label className="block mb-2 text-sm text-gray-900 dark:text-white font-bold" for="file_input">Upload file</label>
-                      <input className="block p-2 font-mono w-full mb-5 text-xs text-white border border-Dark rounded-lg cursor-pointer bg-Dark" id="small_size" type="file"/>
-                    </div>
-                    <div className='-mt-10 mb-4'>
-                      <label className="block mb-2 text-sm text-gray-900 dark:text-white font-bold" for="description">Tambahkan deskripsi</label>
-                      <textarea className="block w-full text-sm text-gray-900 border border-Dark rounded-lg cursor-pointer bg-white" id="description" type="text" name="description"></textarea>
-                    </div>
-                    <div className="mb-2">
-                      <select className=" bg-Dark border border-gray-300 text-white text-sm rounded-lg focus:ring-Green focus:border-Green block w-full p-2.5" aria-label="select-category" name="category_id">
-                        <option selected="">Tambahkan kategori</option>
-                        <option value="1">Digital Art</option>
-                        <option value="2">Poster</option>
-                        <option value="3">Web Design</option>
-                        <option value="4">Wallpaper</option>
-                        <option value="5">Kerajinan Tangan</option>
-                        <option value="6">Ilustrasi</option>
-                        <option value="7">Portofolio</option>
-                        <option value="8">Typography</option>
-                        <option value="9">PowerPoint</option>
-                        <option value="10">Animasi</option>
-                        <option value="11">Tanah Liat</option>
-                      </select>
-                    </div>
-                    <div className="bg-Green hover:bg-Dark text-white font-bold py-2 px-4 rounded-full mt-4 text-center">
-                      <button type="submit">Upload</button>
-                    </div>
-                  </form>
-                </ul>
-              </div>
+  <button className="btn-action" type="button" data-bs-toggle="dropdown">Unggah</button>
+  <ul className="dropdown-menu upload mt-2">
+    <form
+      action="http://localhost:4000/works"
+      method="POST"
+      encType="multipart/form-data"
+    >
+      <input
+        type="hidden"
+        name="_token"
+        value="nq0ImsgunkckeF9mhr30EeyT8pltYMjGlIZzrbv2"
+        autoComplete="off"
+      />
+      <div className="mb-3 mt-2">
+        <label
+          className="block mb-2 text-sm text-gray-900 dark:text-white font-bold"
+          htmlFor="file_input"
+        >
+          Upload file
+        </label>
+        <input
+          className="block p-2 font-mono w-full mb-5 text-xs text-white border border-Dark rounded-lg cursor-pointer bg-Dark"
+          id="file_input"
+          type="file"
+          name="files"
+        />
+      </div>
+      <div className="mb-4">
+        <label
+          className="block mb-2 text-sm text-gray-900 dark:text-white font-bold"
+          htmlFor="description"
+        >
+          Tambahkan deskripsi
+        </label>
+        <textarea
+          className="block w-full text-sm text-gray-900 border border-Dark rounded-lg cursor-pointer bg-white"
+          id="description"
+          name="description"
+        ></textarea>
+      </div>
+      <div className="mb-2">
+        <select
+          className="bg-Dark border border-gray-300 text-white text-sm rounded-lg focus:ring-Green focus:border-Green block w-full p-2.5"
+          aria-label="select-category"
+          name="category"
+        >
+          <option value="">Tambahkan kategori</option>
+          <option value="1">Digital Art</option>
+          <option value="2">Poster</option>
+          <option value="3">Web Design</option>
+          <option value="4">Wallpaper</option>
+          <option value="5">Kerajinan Tangan</option>
+          <option value="6">Ilustrasi</option>
+          <option value="7">Portofolio</option>
+          <option value="8">Typography</option>
+          <option value="9">PowerPoint</option>
+          <option value="10">Animasi</option>
+          <option value="11">Tanah Liat</option>
+        </select>
+      </div>
+      <div className="bg-Green hover:bg-Dark text-white font-bold py-2 px-4 rounded-full mt-4 text-center">
+        <button type="submit">Upload</button>
+      </div>
+    </form>
+  </ul>
+</div>
+
+
             </div>
 
             <div className="artwork-content">
