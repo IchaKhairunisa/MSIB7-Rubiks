@@ -1,13 +1,20 @@
 /** @type {import('tailwindcss').Config} */
-export default {
-    content: [
-      "./index.html",
-      "./src/**/*.{js,ts,jsx,tsx}",
-    ],
-    theme: {
-      extend: {},
+module.exports = {
+  content: [
+    "./src/**/*.{js,jsx,ts,tsx}", 
+  ],
+  theme: {
+    extend: {
+      fontFamily: {
+        sans: ["Figtree", "sans-serif"],
     },
-    plugins: [],
-  }
-  
-  
+    colors: {
+        Dark: "#0f172a",
+        Green: "#0d9488",
+        Orange: "#ED7423",
+        Blue: "#13597A",
+    },
+    }, 
+  },
+  plugins: [],
+};

@@ -2,7 +2,7 @@ import React from 'react'
 
 function KaryaPengguna() {
   return (
-    <div>K
+    <div>
       <section>
         <div className="profile-container">
           <a href="/EkplorasiLogin">
@@ -15,14 +15,14 @@ function KaryaPengguna() {
               <p></p>
             </div>
           </div>
-          <div className="menu">
+          <div className="menu mb-3">
             <a href='/KaryaPengguna'><button className="btn-menu active" id="btn-karya" fdprocessedid="6etnix">Karya kamu</button></a>
             <a href="/TentangKamu"><button className="btn-menu" id="btn-tentang" fdprocessedid="m52kcb">Tentang kamu</button></a>
           </div>
           <hr />
           <div className="my-artworks">
             <div className="row"></div>
-            <div className="action mt-2">
+            <div className="action mt-5 mb-3">
               <button type="button" className="btn-action" data-bs-toggle="modal" data-bs-target="#modalListDelete" fdprocessedid="zet1w">Hapus</button>
               {/* <!-- Modal --> */}
               <div className="modal fade" id="modalListDelete" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -66,18 +66,19 @@ function KaryaPengguna() {
 
               <div className="dropdown">
                 <button className="btn-action" type="button" data-bs-toggle="dropdown" fdprocessedid="y1c8oa">Unggah</button>
-                <ul className="dropdown-menu upload">
+                <ul className="dropdown-menu upload mt-2">
                   <form action="profile" method="POST" enctype="multipart/form-data">
                     <input type="hidden" name="_token" value="nq0ImsgunkckeF9mhr30EeyT8pltYMjGlIZzrbv2" autoComplete="off" />
-                    <div className="mb-3">
-                      <input type="file" className="form-control" id="inputfile" aria-describedby="inputgroupfile" aria-label="Upload" name="image" />
+                    <div className="mb-3 mt-2">
+                      <label className="block mb-2 text-sm text-gray-900 dark:text-white font-bold" for="file_input">Upload file</label>
+                      <input className="block p-2 font-mono w-full mb-5 text-xs text-white border border-Dark rounded-lg cursor-pointer bg-Dark" id="small_size" type="file"/>
                     </div>
-                    <div className="mb-3">
-                      <label for="description">Tambahkan deskripsi</label>
-                      <textarea type="text" name="description" id="description"></textarea>
+                    <div className='-mt-10 mb-4'>
+                      <label className="block mb-2 text-sm text-gray-900 dark:text-white font-bold" for="description">Tambahkan deskripsi</label>
+                      <textarea className="block w-full text-sm text-gray-900 border border-Dark rounded-lg cursor-pointer bg-white" id="description" type="text" name="description"></textarea>
                     </div>
-                    <div className="mb-5">
-                      <select className="form-select" aria-label="select-category" name="category_id">
+                    <div className="mb-2">
+                      <select className=" bg-Dark border border-gray-300 text-white text-sm rounded-lg focus:ring-Green focus:border-Green block w-full p-2.5" aria-label="select-category" name="category_id">
                         <option selected="">Tambahkan kategori</option>
                         <option value="1">Digital Art</option>
                         <option value="2">Poster</option>
@@ -92,8 +93,8 @@ function KaryaPengguna() {
                         <option value="11">Tanah Liat</option>
                       </select>
                     </div>
-                    <div className="mt-3 d-flex justify-content-end">
-                      <button type="submit" className="btn-action">ok</button>
+                    <div className="bg-Green hover:bg-Dark text-white font-bold py-2 px-4 rounded-full mt-4 text-center">
+                      <button type="submit">Upload</button>
                     </div>
                   </form>
                 </ul>
