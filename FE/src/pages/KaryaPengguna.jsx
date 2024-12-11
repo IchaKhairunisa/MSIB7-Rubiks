@@ -262,11 +262,12 @@ function KaryaPengguna() {
             key={work.id}
             className="work-card w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-4 bg-white border rounded-lg shadow-lg transform transition-all duration-300 hover:scale-105"
           >
-            <img
-              src={`http://localhost:4000/images/${work.imageUrl.replace('public/images/', '')}`}
-              alt={work.title}
-              className="work-image w-full h-auto object-cover rounded-md"
-            />
+<img
+  src={`http://localhost:4000/${work.imageUrl.replace(/\\/g, '/')}`}
+  alt={work.title}
+  className="work-image w-full h-auto object-cover rounded-md"
+/>
+
             <div className="flex flex-col justify-center items-center">
                 <h2 className="work-title mt-2 text-xl font-semibold">{work.title}</h2>
                 <p className="work-description text-gray-600">{work.description}</p>
