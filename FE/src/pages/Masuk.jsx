@@ -7,29 +7,16 @@ function Masuk() {
     password: '',
   });
 
-  const [error, setError] = useState('');
-  const navigate = useNavigate();
+  const navigate = useNavigate(); // Hook untuk navigasi
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
+    setFormData({ ...formData, [name]: value });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const { username, password } = formData;
-
-    // Basic form validation
-    if (!username || !password) {
-      setError('Username and password are required');
-      return;
-    }
-
     try {
-      // Send the login request to the backend
       const response = await fetch('http://localhost:5000/login', {
         method: 'POST',
         headers: {
@@ -38,17 +25,22 @@ function Masuk() {
         body: JSON.stringify(formData),
       });
 
-      const result = await response.text();
+      const result = await response.json();
 
       if (response.ok) {
-        alert(result); // On success, show success message
-        // Redirect to another page after successful login
-        navigate('/EksplorasiLogin'); // Correct the route path here
+        alert(result.message); // Tampilkan pesan sukses
+
+        // Simpan data user di localStorage (opsional)
+        localStorage.setItem('user', JSON.stringify(result.user));
+
+        // Arahkan ke halaman Eksplorasi
+        navigate('/Eksplorasi');
       } else {
-        setError(result); // Set the error state with the error message
+        alert(result.message); // Tampilkan pesan error jika login gagal
       }
     } catch (error) {
-      setError('Error during login');
+      console.error('Error:', error);
+      alert('Terjadi kesalahan. Coba lagi nanti.');
     }
   };
 
@@ -64,7 +56,6 @@ function Masuk() {
 
         <div className="login-form">
           <h2>MASUK</h2>
-          {error && <div className="error-message">{error}</div>} {/* Display error messages */}
           <form onSubmit={handleSubmit}>
             <label htmlFor="username">Username</label>
             <input
@@ -72,9 +63,11 @@ function Masuk() {
               id="username"
               name="username"
               placeholder="Username"
+              value={formData.username}
               onChange={handleChange}
               required
             />
+
             <label htmlFor="password">Password</label>
             <div className="password-container">
               <input
@@ -82,13 +75,14 @@ function Masuk() {
                 id="password"
                 name="password"
                 placeholder="Password"
+                value={formData.password}
                 onChange={handleChange}
                 required
               />
-              <span className="toggle-password"></span>
             </div>
-            <div className="button">
-              <button type="submit" className="btn-auth">Masuk</button>
+
+            <div className="button-container">
+              <button type="submit" className="signup-btn">MASUK</button>
             </div>
           </form>
         </div>
