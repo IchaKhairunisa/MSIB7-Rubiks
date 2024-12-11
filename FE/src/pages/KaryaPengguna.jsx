@@ -1,11 +1,51 @@
 import React, { useState, useEffect } from "react";
 
 function KaryaPengguna() {
+  const [username, setUsername] = useState('');
   const [image, setImage] = useState('https://fakeimg.pl/350x200/?text=Artwork');
   const [saveImage, setSaveImage] = useState(null);
   const [description, setDescription] = useState('');
   const [category, setCategory] = useState('');
   const [title, setTitle] = useState('');
+  const [works, setWorks] = useState([]);
+
+  useEffect(() => {
+    // Fetch user data from the server
+    fetch('http://localhost:5000/getUser', {
+      method: 'GET',
+      credentials: 'include', // Include cookies for session
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Failed to fetch user data');
+        }
+        return response.json();
+      })
+      .then((data) => {
+        setUsername(data.username);
+      })
+      .catch((error) => {
+        console.error('Error fetching user data:', error);
+      });
+
+    async function fetchWorks() {
+      try {
+        const response = await fetch('http://localhost:4000/works'); // Ganti dengan URL API yang sesuai
+        const result = await response.json();
+        if (result.status) {
+          setWorks(result.data); 
+          console.log(result.data[0].imageUrl); 
+        } else {
+          console.error('Gagal mengambil data karya');
+        }
+      } catch (error) {
+        console.error('Error fetching data: ', error);
+      }
+    }
+
+    fetchWorks();
+  }, []);
+
   function handleImage(e) {
     let uploaded = e.target.files[0];
     setImage(URL.createObjectURL(uploaded));
@@ -51,29 +91,6 @@ function KaryaPengguna() {
       }
     }
   }
-  
-
-  // Get Data Karya
-  const [works, setWorks] = useState([]);
-
-  // Mengambil data karya dari API
-  useEffect(() => {
-    async function fetchWorks() {
-      try {
-        const response = await fetch('http://localhost:4000/works'); // Ganti dengan URL API yang sesuai
-        const result = await response.json();
-        if (result.status) {
-          setWorks(result.data); 
-          console.log(result.data[0].imageUrl); 
-        } else {
-          console.error('Gagal mengambil data karya');
-        }
-      } catch (error) {
-        console.error('Error fetching data: ', error);
-      }
-    }
-    fetchWorks();
-  }, []);
 
   async function handleDelete(id) {
     if (window.confirm("Apakah Anda yakin ingin menghapus karya ini?")) {
@@ -95,7 +112,7 @@ function KaryaPengguna() {
       }
     }
   }
-  
+
   return (
     <div className='w-full'>
       <section>
@@ -106,7 +123,7 @@ function KaryaPengguna() {
           <div className="profile-info">
             <img src="/assets/images/Akun.png" alt="profile" />
             <div className="detail">
-              <h4>Admin</h4>
+              <h4>{username || 'Loading...'}</h4>
             </div>
           </div>
           <div className="menu mb-3">
