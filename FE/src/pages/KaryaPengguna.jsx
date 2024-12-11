@@ -160,7 +160,7 @@ function KaryaPengguna() {
         <th scope="row">{index + 1}</th>
         <td>
           <img 
-            src={`http://localhost:4000/api/images/${work.imageUrl.replace('public/images/', '')}`} 
+            src={`http://localhost:4000/images/${work.imageUrl.replace('public/images/', '')}`} 
             alt={work.title} 
             width="50px" 
           />
