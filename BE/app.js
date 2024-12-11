@@ -14,7 +14,7 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-app.use("/api/images", express.static("public/images"));
+app.use("/public/images", express.static("public/images"));
 
 app.post("/upload", (req, res) => {
   uploadFiles(req, res, (err) => {

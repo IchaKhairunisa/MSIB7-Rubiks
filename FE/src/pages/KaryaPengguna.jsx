@@ -72,7 +72,6 @@ function KaryaPengguna() {
         console.error('Error fetching data: ', error);
       }
     }
-
     fetchWorks();
   }, []);
 
@@ -239,15 +238,15 @@ function KaryaPengguna() {
           </div>
           <div className="artwork-content justify-center mt-5">
             <div className="card-artwork">
-    <div className="card-artwork-description flex flex-wrap justify-center gap-4">
-      {works.length > 0 ? (
-        works.map((work, index) => (
+              <div className="card-artwork-description flex flex-wrap justify-center gap-4">
+                {works.length > 0 ? (
+                  works.map((work, index) => (
           <div
             key={work.id}
             className="work-card w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-4 bg-white border rounded-lg shadow-lg transform transition-all duration-300 hover:scale-105"
           >
             <img
-              src={`http://localhost:4000/api/images/${work.imageUrl.replace('public/images/', '')}`}
+              src={`http://localhost:4000/images/${work.imageUrl.replace('public/images/', '')}`}
               alt={work.title}
               className="work-image w-full h-auto object-cover rounded-md"
             />
