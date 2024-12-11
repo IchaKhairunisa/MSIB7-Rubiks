@@ -45,12 +45,6 @@ app.post('/register', async (req, res) => {
   }
 });
 
-// Start server
-const PORT = 5000;
-app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
-});
-
 // Login route
 app.post('/login', (req, res) => {
   const { username, password } = req.body;
@@ -59,7 +53,7 @@ app.post('/login', (req, res) => {
     return res.status(400).json({ message: 'Please fill all fields!' });
   }
 
-  // Query untuk mencari user berdasarkan username
+  // Query to find user by username
   const query = 'SELECT * FROM users WHERE username = ?';
   db.query(query, [username], async (err, result) => {
     if (err) return res.status(500).json({ message: 'Database error', error: err });
@@ -68,13 +62,28 @@ app.post('/login', (req, res) => {
       return res.status(404).json({ message: 'User not found' });
     }
 
-    // Verifikasi password dengan bcrypt
-    const isPasswordValid = await bcrypt.compare(password, result[0].password);
+    // Verify password with bcrypt
+    const user = result[0];
+    const isPasswordValid = await bcrypt.compare(password, user.password);
 
     if (!isPasswordValid) {
       return res.status(401).json({ message: 'Invalid password' });
     }
 
-    res.status(200).json({ message: 'Login successful!' });
+    // Send user data (without password)
+    res.status(200).json({
+      message: 'Login successful!',
+      user: {
+        id: user.id,
+        username: user.username,
+        email: user.email,
+      },
+    });
   });
+});
+
+// Start server
+const PORT = 5000;
+app.listen(PORT, () => {
+  console.log(`Server running on http://localhost:${PORT}`);
 });
