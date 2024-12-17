@@ -10,5 +10,8 @@ router.get("/works/:worksId", WorksController.getWorksById);
 router.put("/works/:worksId", uploadFiles, WorksController.updateWorksById);
 router.delete("/works/:id", WorksController.deleteWorksById);
 
+router.post("/register", UsersController.register);
+router.post("/login", UsersController.login);
+
 export default router;
 
